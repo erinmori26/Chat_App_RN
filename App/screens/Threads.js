@@ -1,16 +1,28 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 
+import firebase from 'react-native-firebase';
 import {ThreadRow, Separator} from '../components/ThreadRow';
-import {listenToThreads, listenToThreadTracking} from '../firebase';
+import {
+  listenToThreads,
+  listenToThreadTracking,
+  // currentUser,
+} from '../firebase';
 
 export default class Threads extends React.Component {
   state = {
     threads: [],
     threadTracking: {}, // track what threads have been read
+    // user: null, // current user that is logged in
   };
 
   componentDidMount() {
+    // ////////
+    // this.setState({user: this.currentUser()});
+    // const {currentUser} = firebase.auth();
+    // this.setState({currentUser});
+    // ////////
+
     // call add new thread function (in firebase/index.js)
     this.removeThreadListener = listenToThreads().onSnapshot(querySnapshot => {
       const threads = querySnapshot.docs.map(doc => ({

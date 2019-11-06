@@ -199,6 +199,9 @@ dependencies {
     implementation "com.google.firebase:firebase-auth:17.0.0"
     implementation "com.google.firebase:firebase-firestore:19.0.0"
 
+    // sign in FirebaseUI
+    // implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermesvm/android/";
       debugImplementation files(hermesPath + "hermes-debug.aar")

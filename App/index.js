@@ -5,10 +5,14 @@ import {
   createSwitchNavigator,
 } from 'react-navigation';
 
-import Initializing from './screens/Initializing';
+// import Initializing from './screens/Initializing';
 import NewThread from './screens/NewThread';
 import Threads from './screens/Threads';
 import Messages from './screens/Messages';
+import Loading from './screens/Loading';
+import SignUp from './screens/SignUp';
+import Login from './screens/Login';
+// import Main from './Main';
 
 import {HeaderIcon} from './components/HeaderIcon';
 
@@ -53,9 +57,12 @@ const MessagingWithModal = createStackNavigator(
 );
 
 const App = createSwitchNavigator({
-  Initializing: {
-    screen: Initializing,
-  },
+  Loading,
+  SignUp,
+  Login,
+  // Initializing: {
+  //   screen: Initializing,
+  // },
   Messaging: {
     screen: MessagingWithModal,
   },

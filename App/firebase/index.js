@@ -1,17 +1,17 @@
 import firebase from 'react-native-firebase';
-import {uniqueNamesGenerator} from 'unique-names-generator';
+// import {uniqueNamesGenerator} from 'unique-names-generator';
 
 // get current user function (in messages)
 export const currentUser = () => firebase.auth().currentUser.toJSON();
 
 // sign in function (in initializing)
-export const signIn = () =>
-  firebase
-    .auth()
-    .signInAnonymously()
-    .then(({user}) =>
-      user.updateProfile({displayName: uniqueNamesGenerator()}),
-    );
+// export const signIn = () =>
+//   firebase
+//     .auth()
+//     .signInAnonymously()
+//     .then(({user}) =>
+//       user.updateProfile({displayName: uniqueNamesGenerator()}),
+//     );
 
 // read past messages and add to thread (in messages)
 export const listenToMessages = threadId =>
@@ -25,7 +25,8 @@ export const listenToMessages = threadId =>
 
 // create new messages function (in messages)
 export const createMessage = async (threadId, text) => {
-  const user = firebase.auth().currentUser.toJSON(); // get user info
+  // const user = firebase.auth().currentUser.toJSON(); // get user info
+  const user = currentUser();
 
   // access data already in firebase
   await firebase

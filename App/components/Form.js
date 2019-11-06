@@ -43,7 +43,8 @@ export const Button = ({title, onPress, disabled}) => {
     <TouchableOpacity
       onPress={onPress}
       style={buttonStyles}
-      disabled={disabled}>
+      disabled={disabled}
+    >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
