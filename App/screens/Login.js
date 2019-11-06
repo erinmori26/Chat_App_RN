@@ -79,6 +79,7 @@ export default class Login extends React.Component {
           style={styles.button}
           onPress={() => this.props.navigation.navigate('SignUp')}
         >
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <Text>Don't have an account? Sign Up</Text>
         </TouchableOpacity>
       </View>
