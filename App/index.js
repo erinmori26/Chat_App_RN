@@ -58,8 +58,8 @@ const MessagingWithModal = createStackNavigator(
 
 const App = createSwitchNavigator({
   Loading,
-  SignUp,
   Login,
+  SignUp,
   // Initializing: {
   //   screen: Initializing,
   // },

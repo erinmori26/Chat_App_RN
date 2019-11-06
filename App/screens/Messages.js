@@ -1,5 +1,6 @@
 import React from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
+import Sound from 'react-native-sound';
 
 import {
   listenToMessages,
@@ -57,9 +58,29 @@ export default class Messages extends React.Component {
     }
   }
 
+  getSound = () => {
+    const textSound = new Sound(
+      'kim_possible_texttone.mp3',
+      Sound.MAIN_BUNDLE,
+      error => {
+        if (error) {
+          console.log('Failed to load the sound', error);
+        }
+
+        textSound.play(success => {
+          if (!success) {
+            console.log('Sound did not play');
+          }
+        });
+      },
+    );
+  };
+
   handleSend = async messages => {
     const text = messages[0].text;
     const thread = this.props.navigation.getParam('thread'); // current thread
+
+    this.getSound();
 
     // call new message function (in firebase/index.js)
     return createMessage(thread._id, text);

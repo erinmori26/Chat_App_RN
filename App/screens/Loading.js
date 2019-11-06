@@ -15,7 +15,7 @@ export default class Loading extends React.Component {
   // when user is authenticated, go to threads; otherwise, go to sign up
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? 'Threads' : 'SignUp');
+      this.props.navigation.navigate(user ? 'Threads' : 'Login');
     });
   }
 
